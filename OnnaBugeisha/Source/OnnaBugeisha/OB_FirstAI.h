@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include "Classes/Engine/World.h" //needed for world functions (getworld)
+#include "GameFramework/PlayerController.h" //Needed to assign target pawn using "Player()->GetPawn()"
 #include "OB_FirstAI.generated.h"
 
 /**
@@ -16,11 +18,15 @@ class ONNABUGEISHA_API AOB_FirstAI : public AAIController
 
 public:
 
-	virtual void BeginPlay() override;
+	virtual void BeginPlay() override; //override ensures parents with beginplay are not overwritten by this function, Virtual allows child classes to have self made begin plays too.
 	virtual void Tick(float deltatime) override;
-	APawn *AAI;
 
-	virtual void GetControlledAI();
+	
+	APawn *SelfPawn = nullptr; //protection
+	APawn *TargetPawn = nullptr; //protection
+
+	void GetControlledAIPawn(); //sets self pawn
+	void GetTargetPawn(); //sets target pawn
 
 private:
 
