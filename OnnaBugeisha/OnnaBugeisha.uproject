@@ -7,11 +7,7 @@
 		{
 			"Name": "OnnaBugeisha",
 			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"AIModule",
-				"Engine"
-			]
+			"LoadingPhase": "Default"
 		}
 	]
 }
