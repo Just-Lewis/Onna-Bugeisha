@@ -59,6 +59,7 @@ Build/*
 !Build/*/
 Build/*/**
 !Build/*/PakBlacklist*.txt
+!OnnaBugeisha.sln
 
 # Don't ignore icon files in Build
 !Build/**/*.ico
