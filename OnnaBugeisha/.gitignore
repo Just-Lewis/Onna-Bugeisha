@@ -1,9 +1,8 @@
 # Visual Studio 2015 user specific files
 .vs/
 
-# Visual Studio 2015 database file
-*.VC.db
-
+#starter content
+*StarterContent/
 # Compiled Object files
 *.slo
 *.lo
@@ -60,8 +59,7 @@ Build/*
 Build/*/**
 !Build/*/PakBlacklist*.txt
 !OnnaBugeisha.sln
-!Source/*
-!Source/*/**
+
 # Don't ignore icon files in Build
 !Build/**/*.ico
 
@@ -77,5 +75,3 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
-# Starter Content
-Content/StarterContent/*
