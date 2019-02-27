@@ -49,3 +49,9 @@ void ABasicEnemy::Notify()
 	}
 }
 */
+
+//Used to change enemy combat state
+void ABasicEnemy::CombatSetter(bool state)
+{
+	inCombat = state;
+}

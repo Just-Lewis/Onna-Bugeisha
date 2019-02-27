@@ -16,12 +16,15 @@ public:
 	// Sets default values for this actor's properties
 	ABasicEnemy();
 
+	//Used to change bool for combat from elsewhere
+	void CombatSetter(bool state);
+
 	//Enemy variables
 	int health;
 	int aggressionLevel; //Can be used to interpret AI reactions to certain player actions
 
-
-	bool inCombat; //Can be changed by observer. TBC
+private:
+	bool inCombat; //Can be changed by observer using CombatSetter function of class. TBC
 
 protected:
 	// Called when the game starts or when spawned
