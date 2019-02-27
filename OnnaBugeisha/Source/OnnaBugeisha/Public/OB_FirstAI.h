@@ -23,12 +23,12 @@ public:
 	virtual void Tick(float deltatime) override;
 
 
-	APawn *SelfPawn = nullptr; //protection
-	APawn *TargetPawn = nullptr; //protection
-
 	void GetControlledAIPawn(); //sets self pawn
 	void GetTargetPawn(); //sets target pawn
 
 private:
+
+	APawn *SelfPawn = nullptr; //protection
+	APawn *TargetPawn = nullptr; //protection
 
 };

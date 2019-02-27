@@ -40,6 +40,7 @@ public:
 
 	bool inCombat; //True = combat mode and false = non-attack mode
 
+	FString niceness = "yeah it's working";
 
 
 protected:

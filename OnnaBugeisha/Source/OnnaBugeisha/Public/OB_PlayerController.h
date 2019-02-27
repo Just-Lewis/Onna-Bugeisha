@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "OnnaBugeishaCharacter.h"
 #include "OB_PlayerController.generated.h"
 
 /**
@@ -16,6 +17,11 @@ class ONNABUGEISHA_API AOB_PlayerController : public APlayerController
 public:
 	virtual void BeginPlay() override;
 
+	void PlayerGetPawn();
+
 private:
 
+	ACharacter *Pawn = nullptr;
+	
+	
 };
