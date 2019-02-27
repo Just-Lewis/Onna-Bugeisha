@@ -140,7 +140,7 @@ void AOnnaBugeishaCharacter::MoveRight(float Value)
 }
 
 // Called every frame
-void ATestActor::Tick(float DeltaTime)
+void AOnnaBugeishaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 

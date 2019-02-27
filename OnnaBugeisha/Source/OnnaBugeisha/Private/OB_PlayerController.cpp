@@ -5,6 +5,6 @@
 void AOB_PlayerController::BeginPlay() {
 
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Error, TEXT("beginPlay acheived in OB_PlayerController "));
+	UE_LOG(LogTemp, Warning, TEXT("beginPlay acheived in OB_PlayerController "));
 
 }
