@@ -45,6 +45,12 @@ AOnnaBugeishaCharacter::AOnnaBugeishaCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+
+	//Set health variable
+	maxHealth = 100;
+	currentHealth = maxHealth;
+
+	playerLevel = 1;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -131,4 +137,11 @@ void AOnnaBugeishaCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+// Called every frame
+void ATestActor::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
 }

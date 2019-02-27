@@ -29,6 +29,19 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+	
+	//Our variables
+	int maxHealth;
+	int currentHealth;
+	
+	int playerLevel; //Allows us to have levelling systems in place
+
+	bool inCombat; //True = combat mode and false = non-attack mode
+
+
+
 protected:
 
 	/** Resets HMD orientation in VR. */
