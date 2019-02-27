@@ -55,3 +55,18 @@ void ABasicEnemy::CombatSetter(bool state)
 {
 	inCombat = state;
 }
+
+void ABasicEnemy::ObserverNotifier(bool state)
+{
+	//Code for notifying the Observer of the change goes here.
+}
+
+void ABasicEnemy::PlayerChecker(void)
+{
+	//Code for checking if player is within certain area/section of map to enemy. if true, notifier needs to be called to update the observer to then update all other enemies
+	//if (**Player class is within sight value**)
+	//{
+	//ObserverNotifier(true);
+	//}
+}
+

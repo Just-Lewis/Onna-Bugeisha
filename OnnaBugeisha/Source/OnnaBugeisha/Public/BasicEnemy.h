@@ -15,13 +15,17 @@ class ONNABUGEISHA_API ABasicEnemy : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABasicEnemy();
-
 	//Used to change bool for combat from elsewhere
 	void CombatSetter(bool state);
+	//Used to notify observer of new states
+	void ObserverNotifier(bool state);
+	//Used to check if player within a set range
+	void PlayerChecker(void);
 
 	//Enemy variables
 	int health;
 	int aggressionLevel; //Can be used to interpret AI reactions to certain player actions
+	float sightValue; //To be used when calculating whether player is in sight range or not of enemy.
 
 private:
 	bool inCombat; //Can be changed by observer using CombatSetter function of class. TBC
