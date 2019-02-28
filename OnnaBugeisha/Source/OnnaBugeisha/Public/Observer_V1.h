@@ -4,8 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/WorldSettings.h"
-#include "Observer_V1.generated.h"
 #include "BasicEnemy.h"
+#include "Observer_V1.generated.h"
+
 
 /**
  * 

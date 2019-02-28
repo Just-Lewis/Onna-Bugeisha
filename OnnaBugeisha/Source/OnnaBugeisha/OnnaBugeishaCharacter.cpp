@@ -74,13 +74,58 @@ void AOnnaBugeishaCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AOnnaBugeishaCharacter::LookUpAtRate);
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////SHALL WE GET RID OF THE VR STUFF?///////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+
 	// handle touch devices
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &AOnnaBugeishaCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &AOnnaBugeishaCharacter::TouchStopped);
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AOnnaBugeishaCharacter::OnResetVR);
+
+
+	/////////////////////////////Onna Bugeisha/////////////////////////
+
+	// Set up gameplay OB key bindings
+	check(PlayerInputComponent);
+	PlayerInputComponent->BindAction("AttackLight", IE_Pressed, this, &AOnnaBugeishaCharacter::AttackLight);
+
+	PlayerInputComponent->BindAction("AttackHeavy", IE_Pressed, this, &AOnnaBugeishaCharacter::AttackHeavy);
+	PlayerInputComponent->BindAction("AttackHeavy", IE_Released, this, &AOnnaBugeishaCharacter::AttackHeavyStop); //need to stop this for charged attack
+
+	PlayerInputComponent->BindAction("Guard", IE_Pressed, this, &AOnnaBugeishaCharacter::Guard);
+	PlayerInputComponent->BindAction("Guard", IE_Pressed, this, &AOnnaBugeishaCharacter::GuardStop);
+
+	PlayerInputComponent->BindAction("Roll", IE_Pressed, this, &AOnnaBugeishaCharacter::Roll);
+
+
+
 }
+
+void AOnnaBugeishaCharacter::AttackLight()
+{
+	UE_LOG(LogTemp, Warning, TEXT("attacking"));
+}
+
+void AOnnaBugeishaCharacter::AttackHeavy()
+{
+}
+
+void AOnnaBugeishaCharacter::AttackHeavyStop()
+{
+}
+void AOnnaBugeishaCharacter::Guard()
+{
+}
+void AOnnaBugeishaCharacter::GuardStop()
+{
+}
+void AOnnaBugeishaCharacter::Roll()
+{
+}
+
 
 
 void AOnnaBugeishaCharacter::OnResetVR()

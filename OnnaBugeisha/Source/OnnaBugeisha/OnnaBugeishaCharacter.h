@@ -43,6 +43,19 @@ public:
 	FString niceness = "yeah it's working";
 
 
+	//These are so we can use them in the blueprint to call animations. Category might not be correct
+	UPROPERTY(BlueprintReadOnly, Category = Character)
+	uint32 bPressedAttackLight : 1;
+
+	UPROPERTY(BlueprintReadOnly, Category = Character)
+	uint32 bPressedAttackHeavy : 1;
+
+	UPROPERTY(BlueprintReadOnly, Category = Character)
+	uint32 bPressedGuard : 1;
+
+	UPROPERTY(BlueprintReadOnly, Category = Character)
+	uint32 bPressedRoll : 1;
+
 protected:
 
 	/** Resets HMD orientation in VR. */
@@ -71,6 +84,16 @@ protected:
 
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
+
+
+	//////////////////////////////Onna Bugesiah Stuff ///////////////////////////
+
+	void AttackLight();
+	void AttackHeavy();
+	void AttackHeavyStop();
+	void Guard();
+	void GuardStop();
+	void Roll();
 
 protected:
 	// APawn interface

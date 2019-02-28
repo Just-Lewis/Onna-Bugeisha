@@ -4,8 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BasicEnemy.generated.h"
 #include "Observer_V1.h"
+#include "BasicEnemy.generated.h"
+
 
 UCLASS()
 class ONNABUGEISHA_API ABasicEnemy : public AActor
