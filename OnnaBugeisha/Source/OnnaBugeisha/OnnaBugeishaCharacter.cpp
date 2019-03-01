@@ -100,6 +100,9 @@ void AOnnaBugeishaCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 
 	PlayerInputComponent->BindAction("Roll", IE_Pressed, this, &AOnnaBugeishaCharacter::Roll);
 
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AOnnaBugeishaCharacter::Sprint);
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AOnnaBugeishaCharacter::SprintStop);
+
 
 
 }
@@ -126,6 +129,13 @@ void AOnnaBugeishaCharacter::Roll()
 {
 }
 
+void AOnnaBugeishaCharacter::Sprint()
+{
+}
+
+void AOnnaBugeishaCharacter::SprintStop()
+{
+}
 
 
 void AOnnaBugeishaCharacter::OnResetVR()

@@ -94,6 +94,8 @@ protected:
 	void Guard();
 	void GuardStop();
 	void Roll();
+	void Sprint();
+	void SprintStop();
 
 protected:
 	// APawn interface
