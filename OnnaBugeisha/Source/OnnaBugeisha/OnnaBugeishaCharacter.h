@@ -33,8 +33,15 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	
 	//Our variables
-	int maxHealth;
-	int currentHealth;
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category=Character)
+	int32 maxHealth;
+
+	int32 currentHealth;
+	float fHeavyCharge;
+	
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Character)
+	float fHeavyChargeMax;
 	
 	int playerLevel; //Allows us to have levelling systems in place
 
@@ -55,6 +62,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = Character)
 	uint32 bPressedRoll : 1;
+
+	UPROPERTY(BlueprintReadOnly, Category = Character)
+	uint32 bPressedSprint : 1;
 
 protected:
 
@@ -94,6 +104,8 @@ protected:
 	void Guard();
 	void GuardStop();
 	void Roll();
+	void Sprint();
+	void SprintStop();
 
 protected:
 	// APawn interface
@@ -105,5 +117,7 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	
 };
 

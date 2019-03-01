@@ -74,10 +74,6 @@ void AOnnaBugeishaCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AOnnaBugeishaCharacter::LookUpAtRate);
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////SHALL WE GET RID OF THE VR STUFF?///////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////
-
 	// handle touch devices
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &AOnnaBugeishaCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &AOnnaBugeishaCharacter::TouchStopped);
@@ -96,13 +92,15 @@ void AOnnaBugeishaCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAction("AttackHeavy", IE_Released, this, &AOnnaBugeishaCharacter::AttackHeavyStop); //need to stop this for charged attack
 
 	PlayerInputComponent->BindAction("Guard", IE_Pressed, this, &AOnnaBugeishaCharacter::Guard);
-	PlayerInputComponent->BindAction("Guard", IE_Pressed, this, &AOnnaBugeishaCharacter::GuardStop);
+	PlayerInputComponent->BindAction("Guard", IE_Released, this, &AOnnaBugeishaCharacter::GuardStop);
 
 	PlayerInputComponent->BindAction("Roll", IE_Pressed, this, &AOnnaBugeishaCharacter::Roll);
 
-
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AOnnaBugeishaCharacter::Sprint);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AOnnaBugeishaCharacter::SprintStop);
 
 }
+
 
 void AOnnaBugeishaCharacter::AttackLight()
 {
@@ -111,21 +109,39 @@ void AOnnaBugeishaCharacter::AttackLight()
 
 void AOnnaBugeishaCharacter::AttackHeavy()
 {
+
+	UE_LOG(LogTemp, Warning, TEXT("Heavy attack charging"));
 }
 
 void AOnnaBugeishaCharacter::AttackHeavyStop()
 {
+	UE_LOG(LogTemp, Warning, TEXT("Heavy charge attack"));
 }
 void AOnnaBugeishaCharacter::Guard()
 {
+	UE_LOG(LogTemp, Warning, TEXT("Guarding"));
 }
 void AOnnaBugeishaCharacter::GuardStop()
 {
+	UE_LOG(LogTemp, Warning, TEXT("GuardingStopped"));
 }
 void AOnnaBugeishaCharacter::Roll()
 {
+
+	UE_LOG(LogTemp, Warning, TEXT("Roll supposedly"));
 }
 
+void AOnnaBugeishaCharacter::Sprint()
+{
+
+	UE_LOG(LogTemp, Warning, TEXT("Sprint started"));
+}
+
+void AOnnaBugeishaCharacter::SprintStop()
+{
+
+	UE_LOG(LogTemp, Warning, TEXT("Sprint Stopped"));
+}
 
 
 void AOnnaBugeishaCharacter::OnResetVR()
