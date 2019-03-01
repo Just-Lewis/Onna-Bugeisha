@@ -14,3 +14,6 @@ class AOnnaBugeishaGameMode : public AGameModeBase
 public:
 	AOnnaBugeishaGameMode();
 };
+
+
+

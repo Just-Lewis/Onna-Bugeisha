@@ -5,7 +5,7 @@
 void AOB_FirstAI::BeginPlay()
 {
 	Super::BeginPlay(); //to make sure parents with BeginPlay run first.
-	UE_LOG(LogTemp, Warning, TEXT("ai has started"));
+	//UE_LOG(LogTemp, Warning, TEXT("ai has started"));
 	GetControlledAIPawn();
 	GetTargetPawn();
 }
