@@ -51,6 +51,11 @@ AOnnaBugeishaCharacter::AOnnaBugeishaCharacter()
 	dCurrentHealth = dMaxHealth;
 
 	dPlayerLevel = 1;
+
+	HeavyCharge = 0;
+	UneffectedDamageMultiplier = 1;
+	DamageMulitplier = UneffectedDamageMultiplier;
+	SprintMultiplier = 1.5;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -119,11 +124,15 @@ void AOnnaBugeishaCharacter::AttackHeavyStop()
 }
 void AOnnaBugeishaCharacter::Guard()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Guarding"));
+	DamageMulitplier = UneffectedDamageMultiplier * .15;
+	UE_LOG(LogTemp, Warning, TEXT("Guarding damage %f"), DamageMulitplier);
 }
 void AOnnaBugeishaCharacter::GuardStop()
 {
-	UE_LOG(LogTemp, Warning, TEXT("GuardingStopped"));
+	DamageMulitplier = UneffectedDamageMultiplier;
+	UE_LOG(LogTemp, Warning, TEXT("GuardingStopped, damage now %f"), DamageMulitplier);
+	
+
 }
 void AOnnaBugeishaCharacter::Roll()
 {
@@ -133,13 +142,13 @@ void AOnnaBugeishaCharacter::Roll()
 
 void AOnnaBugeishaCharacter::Sprint()
 {
-
+	GetCharacterMovement()->MaxWalkSpeed *= 500; //SprintMultiplier;
 	UE_LOG(LogTemp, Warning, TEXT("Sprint started"));
 }
 
 void AOnnaBugeishaCharacter::SprintStop()
 {
-
+	GetCharacterMovement()->MaxWalkSpeed /= 500;//SprintMultiplier;
 	UE_LOG(LogTemp, Warning, TEXT("Sprint Stopped"));
 }
 
@@ -204,7 +213,5 @@ void AOnnaBugeishaCharacter::MoveRight(float Value)
 void AOnnaBugeishaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	UE_LOG(LogTemp, Warning, TEXT("Health is %d")*CurrentHealth);
 
 }

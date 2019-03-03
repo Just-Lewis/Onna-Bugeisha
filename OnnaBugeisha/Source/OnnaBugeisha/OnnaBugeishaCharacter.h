@@ -63,9 +63,16 @@ public:
 
 	//invisible to engine
 	int32 dCurrentHealth;
-	float fHeavyCharge;
+	float HeavyCharge;
+	float UneffectedDamageMultiplier;
+	float DamageMulitplier;
+
+	UPROPERTY(EditAnywhere, Category = Character)
+	float SprintMultiplier;
 
 	int32 dPlayerLevel; // Have this read/writable in the blueprint for testing?
+
+
 
 protected:
 
