@@ -47,10 +47,10 @@ AOnnaBugeishaCharacter::AOnnaBugeishaCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
 	//Set health variable
-	maxHealth = 100;
-	currentHealth = maxHealth;
+	dMaxHealth = 100;
+	dCurrentHealth = dMaxHealth;
 
-	playerLevel = 1;
+	dPlayerLevel = 1;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -204,5 +204,7 @@ void AOnnaBugeishaCharacter::MoveRight(float Value)
 void AOnnaBugeishaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	UE_LOG(LogTemp, Warning, TEXT("Health is %d")*CurrentHealth);
 
 }

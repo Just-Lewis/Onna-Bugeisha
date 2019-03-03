@@ -2,11 +2,13 @@
 
 #include "OB_PlayerController.h"
 #include "../Public/OB_PlayerController.h"
+#include "OnnaBugeishaCharacter.h"
 
 void AOB_PlayerController::BeginPlay() {
 
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("beginPlay acheived in OB_PlayerController "));
+
 
 }
 

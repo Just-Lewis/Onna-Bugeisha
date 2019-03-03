@@ -32,24 +32,19 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	//Our variables
+	//Our variables visible to engine
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category=Character)
-	int32 maxHealth;
-
-	int32 currentHealth;
-	float fHeavyCharge;
-	
+	int32 dMaxHealth;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Character)
 	float fHeavyChargeMax;
 	
-	int playerLevel; //Allows us to have levelling systems in place
+	
 
-	bool inCombat; //True = combat mode and false = non-attack mode
-
-	FString niceness = "yeah it's working";
-
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Character)
+	bool bInCombat; //True = combat mode and false = non-attack mode
+	
+	
 	//These are so we can use them in the blueprint to call animations. Category might not be correct
 	UPROPERTY(BlueprintReadOnly, Category = Character)
 	uint32 bPressedAttackLight : 1;
@@ -65,6 +60,12 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = Character)
 	uint32 bPressedSprint : 1;
+
+	//invisible to engine
+	int32 dCurrentHealth;
+	float fHeavyCharge;
+
+	int32 dPlayerLevel; // Have this read/writable in the blueprint for testing?
 
 protected:
 
