@@ -107,22 +107,24 @@ void AOnnaBugeishaCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 
 void AOnnaBugeishaCharacter::AttackLight()
 {
+	bPressedAttackLight = true;
 	UE_LOG(LogTemp, Warning, TEXT("attacking"));
+	bPressedAttackLight = false;
 }
 
 void AOnnaBugeishaCharacter::AttackHeavy()
 {
 	bPressedAttackHeavy = true;
-	while (bPressedAttackHeavy == true) {
+	
 		UE_LOG(LogTemp, Warning, TEXT("Heavy attack charging"));
-		LineTraceDebugLine();
-	}
 	
 }
 
 void AOnnaBugeishaCharacter::AttackHeavyStop()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Heavy charge attack"));
+
+	bPressedAttackHeavy = false;
 }
 void AOnnaBugeishaCharacter::Guard()
 {
@@ -216,36 +218,18 @@ void AOnnaBugeishaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-}
+	if (bPressedAttackHeavy == true|| bPressedAttackLight == true) {
+		LineTraceDebugLine();
+	 }
 
-FVector AOnnaBugeishaCharacter::GetReachLineEnd() {
-	//Get ReachLineEnd
-	FVector PlayerViewPointLocation;
-	FRotator PlayerViewPointRotation;
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
-		OUT	PlayerViewPointLocation,
-		OUT	PlayerViewPointRotation);
-	// Draw a red trace in the world to visualise
-	return PlayerViewPointLocation + (PlayerViewPointRotation.Vector() * 10);
-}
-
-FVector AOnnaBugeishaCharacter::GetReachLineStart() {
-	//Get ReachLineEnd
-	FVector PlayerViewPointLocation;
-	FRotator PlayerViewPointRotation;
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
-		OUT	PlayerViewPointLocation,
-		OUT	PlayerViewPointRotation);
-	// Draw a red trace in the world to visualise
-	return PlayerViewPointLocation;
 }
 
 void AOnnaBugeishaCharacter::LineTraceDebugLine()
 {
 	DrawDebugLine(
 		GetWorld(),
-		GetReachLineStart(),
-		GetReachLineEnd(),
+		GetActorLocation(),
+		FVector (GetActorLocation() + GetActorRotation().Vector()* 100),
 		FColor(255, 0, 0),
 		false,
 		0.5f,
