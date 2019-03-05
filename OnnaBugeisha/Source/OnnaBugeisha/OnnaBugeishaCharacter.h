@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "DrawDebugHelpers.h"
+#include "engine/world.h"
 #include "OnnaBugeishaCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -38,8 +40,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Character)
 	float fHeavyChargeMax;
-	
-	
+		
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Character)
 	bool bInCombat; //True = combat mode and false = non-attack mode
@@ -70,9 +71,8 @@ public:
 	UPROPERTY(EditAnywhere, Category = Character)
 	float SprintMultiplier;
 
+	UPROPERTY(EditAnywhere, Category = Character)
 	int32 dPlayerLevel; // Have this read/writable in the blueprint for testing?
-
-
 
 protected:
 
@@ -114,6 +114,10 @@ protected:
 	void Roll();
 	void Sprint();
 	void SprintStop();
+
+	FVector GetReachLineEnd();
+	FVector GetReachLineStart();
+	void LineTraceDebugLine();
 
 protected:
 	// APawn interface

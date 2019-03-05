@@ -114,8 +114,12 @@ void AOnnaBugeishaCharacter::AttackLight()
 
 void AOnnaBugeishaCharacter::AttackHeavy()
 {
-
-	UE_LOG(LogTemp, Warning, TEXT("Heavy attack charging"));
+	bPressedAttackHeavy = true;
+	while (bPressedAttackHeavy == true) {
+		UE_LOG(LogTemp, Warning, TEXT("Heavy attack charging"));
+		LineTraceDebugLine();
+	}
+	
 }
 
 void AOnnaBugeishaCharacter::AttackHeavyStop()
@@ -215,3 +219,40 @@ void AOnnaBugeishaCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+
+FVector AOnnaBugeishaCharacter::GetReachLineEnd() {
+	//Get ReachLineEnd
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+		OUT	PlayerViewPointLocation,
+		OUT	PlayerViewPointRotation);
+	// Draw a red trace in the world to visualise
+	return PlayerViewPointLocation + (PlayerViewPointRotation.Vector() * 10);
+}
+
+FVector AOnnaBugeishaCharacter::GetReachLineStart() {
+	//Get ReachLineEnd
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+		OUT	PlayerViewPointLocation,
+		OUT	PlayerViewPointRotation);
+	// Draw a red trace in the world to visualise
+	return PlayerViewPointLocation;
+}
+
+void AOnnaBugeishaCharacter::LineTraceDebugLine()
+{
+	DrawDebugLine(
+		GetWorld(),
+		GetReachLineStart(),
+		GetReachLineEnd(),
+		FColor(255, 0, 0),
+		false,
+		0.5f,
+		0.1f
+		);
+}
+
+
