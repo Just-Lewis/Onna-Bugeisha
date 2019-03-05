@@ -113,16 +113,16 @@ void AOnnaBugeishaCharacter::AttackLight()
 void AOnnaBugeishaCharacter::AttackHeavy()
 {
 	bPressedAttackHeavy = true;
-	while (bPressedAttackHeavy == true) {
+	
 		UE_LOG(LogTemp, Warning, TEXT("Heavy attack charging"));
-		LineTraceDebugLine();
-	}
 	
 }
 
 void AOnnaBugeishaCharacter::AttackHeavyStop()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Heavy charge attack"));
+
+	bPressedAttackHeavy = true;
 }
 void AOnnaBugeishaCharacter::Guard()
 {
