@@ -47,8 +47,8 @@ AOnnaBugeishaCharacter::AOnnaBugeishaCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
 	//Set health variable
-	dMaxHealth = 100;
-	dCurrentHealth = dMaxHealth;
+	//dMaxHealth = 100;
+	//dCurrentHealth = dMaxHealth;
 
 	dPlayerLevel = 1;
 
