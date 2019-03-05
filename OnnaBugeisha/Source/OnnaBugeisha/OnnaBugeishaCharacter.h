@@ -36,7 +36,10 @@ public:
 	
 	//Our variables visible to engine
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category=Character)
-	int32 dMaxHealth;
+	float fMaxHealth;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, category = Character)
+	float fCurrentHealth;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Character)
 	float fHeavyChargeMax;
@@ -62,8 +65,10 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = Character)
 	uint32 bPressedSprint : 1;
 
+	
+
+	
 	//invisible to engine
-	int32 dCurrentHealth;
 	float HeavyCharge;
 	float UneffectedDamageMultiplier;
 	float DamageMulitplier;

@@ -46,16 +46,14 @@ AOnnaBugeishaCharacter::AOnnaBugeishaCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
-	//Set health variable
-	//dMaxHealth = 100;
-	//dCurrentHealth = dMaxHealth;
-
 	dPlayerLevel = 1;
 
 	HeavyCharge = 0;
 	UneffectedDamageMultiplier = 1;
 	DamageMulitplier = UneffectedDamageMultiplier;
 	SprintMultiplier = 1.5;
+	fMaxHealth = 100;
+	fCurrentHealth = fMaxHealth;
 }
 
 //////////////////////////////////////////////////////////////////////////
