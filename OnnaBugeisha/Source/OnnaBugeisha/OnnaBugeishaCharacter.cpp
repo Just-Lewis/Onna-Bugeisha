@@ -142,13 +142,13 @@ void AOnnaBugeishaCharacter::Roll()
 
 void AOnnaBugeishaCharacter::Sprint()
 {
-	GetCharacterMovement()->MaxWalkSpeed *= 500; //SprintMultiplier;
+	GetCharacterMovement()->MaxWalkSpeed *= SprintMultiplier;
 	UE_LOG(LogTemp, Warning, TEXT("Sprint started"));
 }
 
 void AOnnaBugeishaCharacter::SprintStop()
 {
-	GetCharacterMovement()->MaxWalkSpeed /= 500;//SprintMultiplier;
+	GetCharacterMovement()->MaxWalkSpeed /= SprintMultiplier;
 	UE_LOG(LogTemp, Warning, TEXT("Sprint Stopped"));
 }
 
