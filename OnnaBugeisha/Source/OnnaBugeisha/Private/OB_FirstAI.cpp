@@ -72,6 +72,7 @@ void AOB_FirstAI::GetTargetPawn()
 
 	//else
 	TargetPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	//UE_LOG(LogTemp, Warning, TEXT("ai %s targetting is %s"), *this->GetName(), *TargetPawn->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("ai %s targetting is %s"), *this->GetName(), *TargetPawn->GetName());
+	return;
 }
 ;

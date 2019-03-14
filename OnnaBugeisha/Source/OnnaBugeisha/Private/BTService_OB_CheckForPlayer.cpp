@@ -17,11 +17,14 @@ UBTService_OB_CheckForPlayer::UBTService_OB_CheckForPlayer()
 
 void UBTService_OB_CheckForPlayer::TickNode(UBehaviorTreeComponent & OwnerComp, uint8 * NodeMemory, float DeltaSeconds)
 {
-	AOB_FirstAI *EnemyPC = Cast<AOB_FirstAI>(OwnerComp.GetAIOwner()); //get ai controller class
+	//Error catch
+	if (Cast<AOB_FirstAI>(OwnerComp.GetAIOwner())) {}
+	else {	UE_LOG(LogTemp, Error, TEXT("Error In GetAIOwner BTSERVICE_OB_CheckForPlayer"));return;}
 
+	AOB_FirstAI *EnemyPC = Cast<AOB_FirstAI>(OwnerComp.GetAIOwner()); //get ai controller class
 	if (EnemyPC) 
 	{
-		AOnnaBugeishaCharacter *Enemy = Cast< AOnnaBugeishaCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn()); //Compiles okay even though it shows as error...
+		AOnnaBugeishaCharacter *Enemy = Cast<AOnnaBugeishaCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn()); //Compiles okay even though it shows as error...
 		
 		if (Enemy) {
 			//assign blackboard component
