@@ -1,11 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#include "OB_FirstAI.h"
+
 #include "OnnaBugeisha.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BehaviorTreeComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
 #include "BasicWolfTestEnemy.h"
+#include "OB_FirstAI.h"
 #include "../Public/OB_FirstAI.h"
 
 
@@ -15,7 +16,6 @@ AOB_FirstAI::AOB_FirstAI()
 	BehaviorComp = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorComp"));
 }
 
-//very similar to assigning in blueprint.
 void AOB_FirstAI::Possess(APawn * InPawn)
 {
 	Super::Possess(InPawn);
@@ -29,7 +29,7 @@ void AOB_FirstAI::Possess(APawn * InPawn)
 		//assign enemy keyid to an object
 		EnemyKeyID = Blackboard->GetKeyID("Target"); //target is key in blackboard.
 
-		BehaviorComp->StartTree(*Char->WolfBehavior);
+
 	}
 }
 
