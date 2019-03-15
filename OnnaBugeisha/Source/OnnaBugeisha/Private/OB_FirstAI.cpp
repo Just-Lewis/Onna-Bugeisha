@@ -5,8 +5,7 @@
 #include "BehaviorTree/BehaviorTreeComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
-#include "GameFramework/PlayerController.h"
-//#include "BasicWolfTestEnemy.h"
+#include "BasicWolfTestEnemy.h"
 #include "../Public/OB_FirstAI.h"
 
 
@@ -17,11 +16,11 @@ AOB_FirstAI::AOB_FirstAI()
 }
 
 //very similar to assigning in blueprint.
-/*
+
 void AOB_FirstAI::Possess(APawn * InPawn)
 {
 	Super::Possess(InPawn);
-	//ABasicWolfTestEnemy *Char = Cast<ABasicWolfTestEnemy>(InPawn); 
+	ABasicWolfTestEnemy *Char = Cast<ABasicWolfTestEnemy>(InPawn); 
 
 	//if both are not null
 	if (Char && Char->WolfBehavior) {
@@ -33,7 +32,7 @@ void AOB_FirstAI::Possess(APawn * InPawn)
 
 		BehaviorComp->StartTree(*Char->WolfBehavior);
 	}
-}*/
+}
 
 
 void AOB_FirstAI::BeginPlay()
