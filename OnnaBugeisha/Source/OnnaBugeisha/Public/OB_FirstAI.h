@@ -32,7 +32,7 @@ public:
 
 	AOB_FirstAI();
 	
-	virtual void Possess(APawn* InPawn) override;
+	//virtual void Possess(APawn* InPawn) override;
 
 	virtual void BeginPlay() override; //override ensures parents with beginplay are not overwritten by this function, Virtual allows child classes to have self made begin plays too.
 	virtual void Tick(float deltatime) override;
