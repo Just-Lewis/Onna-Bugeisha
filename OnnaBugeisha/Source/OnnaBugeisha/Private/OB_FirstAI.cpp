@@ -5,7 +5,8 @@
 #include "BehaviorTree/BehaviorTreeComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
-#include "BasicWolfTestEnemy.h"
+#include "GameFramework/PlayerController.h"
+//#include "BasicWolfTestEnemy.h"
 #include "../Public/OB_FirstAI.h"
 
 
