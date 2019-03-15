@@ -17,10 +17,10 @@
 {
 		GENERATED_BODY()
 
-		//not public in tutorial. Why?
+	
 		//transient means initialised at 0 or something
 		UPROPERTY(Transient)
-		class UBlackboardComponent *BlackBoardComp;
+		class UBlackboardComponent *BlackboardComp;
 
 		UPROPERTY(Transient)
 		class UBehaviorTreeComponent *BehaviorComp;

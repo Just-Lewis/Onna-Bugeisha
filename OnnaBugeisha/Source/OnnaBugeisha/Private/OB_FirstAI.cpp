@@ -11,7 +11,7 @@
 
 AOB_FirstAI::AOB_FirstAI()
 {
-	BlackBoardComp = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackBoardComp"));
+	BlackboardComp = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComp"));
 	BehaviorComp = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorComp"));
 }
 
@@ -24,7 +24,7 @@ void AOB_FirstAI::Possess(APawn * InPawn)
 	//if both are not null
 	if (Char && Char->WolfBehavior) {
 		//initialise black board
-		BlackBoardComp->InitializeBlackboard(*Char->WolfBehavior->BlackboardAsset);
+		BlackboardComp->InitializeBlackboard(*Char->WolfBehavior->BlackboardAsset);
 
 		//assign enemy keyid to an object
 		EnemyKeyID = Blackboard->GetKeyID("Target"); //target is key in blackboard.
