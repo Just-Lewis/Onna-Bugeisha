@@ -16,6 +16,7 @@ AOB_FirstAI::AOB_FirstAI()
 }
 
 //very similar to assigning in blueprint.
+
 void AOB_FirstAI::Possess(APawn * InPawn)
 {
 	Super::Possess(InPawn);
@@ -32,6 +33,7 @@ void AOB_FirstAI::Possess(APawn * InPawn)
 		BehaviorComp->StartTree(*Char->WolfBehavior);
 	}
 }
+
 
 void AOB_FirstAI::BeginPlay()
 {
@@ -62,6 +64,8 @@ void AOB_FirstAI::GetControlledAIPawn() {
 	//UE_LOG(LogTemp, Warning, TEXT("ai %s controller is %s"), *this->GetName(), *SelfPawn->GetName());
 
 }
+
+
 void AOB_FirstAI::GetTargetPawn()
 {
 	if (GetWorld()->GetFirstPlayerController()->GetPawn() == nullptr) //protection and log
