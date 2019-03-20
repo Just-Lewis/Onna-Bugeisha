@@ -16,30 +16,17 @@
 	class ONNABUGEISHA_API AOB_FirstAI : public AAIController
 {
 		GENERATED_BODY()
-
-
-		//transient means initialised at 0 or something
-		UPROPERTY(Transient)
-		class UBlackboardComponent *BlackboardComp;
-
-		UPROPERTY(Transient)
-		class UBehaviorTreeComponent *BehaviorComp;
-
+		
 
 public:
 
-
-
 	AOB_FirstAI();
 
+	
 //	virtual void Possess(APawn* InPawn) override;
 
 	virtual void BeginPlay() override; //override ensures parents with beginplay are not overwritten by this function, Virtual allows child classes to have self made begin plays too.
 	virtual void Tick(float deltatime) override;
-
-	//key from blackboard.
-	UINT8 EnemyKeyID;
-
 
 
 	void GetControlledAIPawn(); //sets self pawn
